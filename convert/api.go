@@ -11,3 +11,7 @@ type Into[T any] interface {
 type AsRef[T any] interface {
 	AsRef(T) *T
 }
+
+type Converter[From any, To any] interface {
+	Convert(From) To
+}

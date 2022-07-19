@@ -5,7 +5,7 @@ When you want to write Rust, but you're stuck writing Go.
 TODO
 
 ## Limitations
-Rust is semantically magnificent, and that's a compiler matter. Go's compiler is fine and fast, but it cannot be coerced into operating like the Rust compiler (and you shouldn't expect it to). While some of the semantics, types, and behavior can be accomplished through ordinary Go means, many cannot.
+Rust is semantically magnificent, and that's a compiler matter. Go's compiler is fine and fast, but it cannot be coerced into operating like the Rust compiler (and you shouldn't expect it to). While some of the semantics, types, and behavior can be accomplished through ordinary Go means, many cannot. As they say, you can take the girl out of Rust, but you can't take the Go out of Go. Or something like that.
 
 - Go's Generics (1.18) are immature and dissapointing if Rust is your standard. Interfaces cannot define generic methods, which is severe limitation if you're trying to implement something like a `Result`.
 - The semantics of type instantiation in Rust (`Thing::new()`) obviously cannot be recreated in Go. The closest option would be `(Thing{}).new()`, which already exists and don't do that.

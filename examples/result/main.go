@@ -1,21 +1,14 @@
 package main
 
 import (
+	"io/ioutil"
 	"os"
 
 	"github.com/jwhittle933/rs.go/result"
 )
 
 func main() {
-	file := openFile("./result.txt")
-	file.Expect("Could not open file")
-}
-
-func openFile(path string) result.Result[*os.File, error] {
-	f, err := os.Open(path)
-	if err != nil {
-		return result.Err[*os.File](err)
-	}
-
-	return result.Ok(f)
+	// Due to the limitation of Go's generics, this cannot be done in a single chain.
+	file := result.Match(os.Open("result.txt")).Expect("could not open file")
+	result.Match(ioutil.ReadAll(file)).Expect("Could not read file")
 }
